@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom';
 /*import { getLoginToken } from '../helper/localStorage';*/
-import LoginLayout from '../pages/login/LoginLayout';
+import LoginLayout from '../components/login/LoginLayout';
 
 function Login() {
   /* validar si existe login en localstorage, si existe redireccionar a reportes 

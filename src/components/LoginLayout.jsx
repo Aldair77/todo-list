@@ -8,19 +8,35 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useNavigate } from 'react-router-dom';
 import { TextField } from '@mui/material';
-import { useForm } from 'react-hook-form';
+/*import { useForm } from 'react-hook-form';*/
 /*import { baseUrl } from '../../helper/config';*/
-import axios from 'axios';
+/*import axios from 'axios';*/
 /*import { saveLogin } from '../../helper/localStorage';*/
 import { LoadingButton } from '@mui/lab';
 import Snackbar from '@mui/material/Snackbar';
-import Alert from '@mui/material/Alert';
+/*import Alert from '@mui/material/Alert';*/
+import supabase from '../utils/supabaseClient'
+
 
 
 function LoginLayout() {
 
+  const [email,setEmail] =useState(null);
+  const [password,setPassword]=useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
+  const hangleSignUp = async() =>{
+    try{
+      const{user ,session,error} = await supabase.auth.SignUp({
+        email,
+        password,
+      })
+      if(error) throw error
+      alert ('chek tu email')
+    }catch(e){
+      alert(e.message)
+    }
+  }
 
   const handleClose = () => {
     setIsOpen(false);
@@ -57,6 +73,7 @@ function LoginLayout() {
             name="username"
             autoComplete="off"
             autoFocus
+            onChange={e=>setEmail(e.target.value)}
            
            
           />
@@ -69,11 +86,12 @@ function LoginLayout() {
             type="password"
             id="password"
             autoComplete="off"
+            onChange={e=>setPassword(e.target.value)}
            
             
           />
-          <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Recuerdame" />
-          <LoadingButton type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 ,color:'#000'}} >
+          <FormControlLabel  control={<Checkbox value="remember" color="primary" />} label="Recuerdame" />
+          <LoadingButton onClick={hangleSignUp} type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 ,color:'#000'}} >
             Ingresar
           </LoadingButton>
         </Box>
