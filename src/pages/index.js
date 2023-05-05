@@ -2,10 +2,18 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import LoginLayout from '../Components/LoginLayout'
+import {supabase} from '../utils/supabaseClient'
+import Dashboard from '../components/Dashboard'
+import { useState, useEffect } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+const [session, setSession] = useState(null);
+useEffect(()=>{
+  setSession(supabase.auth.signInWithPassword())
+},[])
   return (
     <>
     
@@ -21,7 +29,7 @@ export default function Home() {
 
         <div className={styles.center}>
           
-          <LoginLayout/>
+          {session != null ? <Dashboard/> : <LoginLayout/>}
           
           
         </div>

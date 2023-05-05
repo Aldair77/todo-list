@@ -15,34 +15,47 @@ import { TextField } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import Snackbar from '@mui/material/Snackbar';
 /*import Alert from '@mui/material/Alert';*/
-import supabase from '../utils/supabaseClient'
-
+import {supabase} from '../utils/supabaseClient'
+import Link from '@mui/material/Link';
 
 
 function LoginLayout() {
+ 
+  const [email,setEmail] =useState('');
+  const [password,setPassword]=useState('');
+  const [isSignUp,setIsSignUp]=useState(true);
 
-  const [email,setEmail] =useState(null);
-  const [password,setPassword]=useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const hangleSignUp = async() =>{
+  const hangleSignUp = async() =>{ /* registro */
     try{
-      const{user ,session,error} = await supabase.auth.SignUp({
+      const{user ,session,error} = await supabase.auth.signUp({
         email,
         password,
       })
-      if(error) throw error
-      alert ('chek tu email')
+      /*if(error) throw error*/
+      alert ('Se envío un correo de confirmacion')
     }catch(e){
       alert(e.message)
     }
   }
 
-  const handleClose = () => {
-    setIsOpen(false);
-  };
+  const hangleSignIn = async() =>{
+    try{
+      const{user ,session,error} = await supabase.auth.signIn({
+        email,
+        password,
+      })
+      /*if(error) throw error*/
+      alert ('Usuario Logueado')
+    }catch(e){
+      alert(e.message)
+    }
+  }
 
-
+  const changeForm = () => {
+    setIsSignUp(value => !value)
+  }
 
   return (
     <Container component="main" maxWidth="xs"   >
@@ -60,7 +73,7 @@ function LoginLayout() {
           <img src="" alt="" />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Ingresar
+          {isSignUp ? 'Registrarse' : 'Ingresar' }
         </Typography>
 
         <Box component="form" noValidate sx={{ mt: 1 }}>
@@ -74,7 +87,7 @@ function LoginLayout() {
             autoComplete="off"
             autoFocus
             onChange={e=>setEmail(e.target.value)}
-           
+            value={email}
            
           />
           <TextField
@@ -87,23 +100,32 @@ function LoginLayout() {
             id="password"
             autoComplete="off"
             onChange={e=>setPassword(e.target.value)}
+            value={password}
            
             
           />
+          
           <FormControlLabel  control={<Checkbox value="remember" color="primary" />} label="Recuerdame" />
+         {
+          isSignUp &&
           <LoadingButton onClick={hangleSignUp} type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 ,color:'#000'}} >
+            Registrar
+          </LoadingButton> 
+         }
+          
+          {
+            !isSignUp &&
+            <LoadingButton onClick={hangleSignIn} type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 ,color:'#000'}} >
             Ingresar
           </LoadingButton>
+          }
+
         </Box>
+          <Link href="#" onClick={changeForm} underline="always">
+            {isSignUp ? 'Ya tienes una cuenta? ¡Ingresa!' : 'No tienes una cuenta? ¡Registrate!'}
+          </Link>
       </Box>
-      <Snackbar
-        open={isOpen}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-      >
-       
-      </Snackbar>
+          
     </Container>
   );
 }
