@@ -33,7 +33,7 @@ function LoginLayout() {
         email,
         password,
       })
-      /*if(error) throw error*/
+      if(error) throw error
       alert ('Se envío un correo de confirmacion')
     }catch(e){
       alert(e.message)
@@ -42,7 +42,7 @@ function LoginLayout() {
 
   const hangleSignIn = async() =>{
     try{
-      const{user ,session,error} = await supabase.auth.signIn({
+      const{user ,session,error} = await supabase.auth.signInWithPassword({
         email,
         password,
       })

@@ -1,8 +1,16 @@
 import React from 'react'
+import Menubar from './Menubar'
+import Buttongroup from './Buttongroup'
 
 function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <>
+    <Menubar/>
+    <Buttongroup/>
+    <div></div>
+    </>
+    
+    
   )
 }
 

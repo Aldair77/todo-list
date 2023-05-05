@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+/*import styles from '@/styles/Home.module.css'*/
 import LoginLayout from '../Components/LoginLayout'
 import {supabase} from '../utils/supabaseClient'
 import Dashboard from '../components/Dashboard'
@@ -10,10 +10,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
-const [session, setSession] = useState(null);
-useEffect(()=>{
-  setSession(supabase.auth.signInWithPassword())
-},[])
+/* const [authsession, setSession] = useState(null);
+useEffect(()=>{ 
+const session = supabase.auth.session()
+  setSession(session)
+},[])*/ 
   return (
     <>
     
@@ -24,17 +25,20 @@ useEffect(()=>{
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      
-      <main className={`${styles.main} ${inter.className}`}>
+      <Dashboard/>
+    
+        { /*
+            <div className={styles.center}>
+              
+              { authsession != null ? <Dashboard/> :  }
+              
+            
 
-        <div className={styles.center}>
-          
-          {session != null ? <Dashboard/> : <LoginLayout/>}
-          
-          
-        </div>
+            </div>
+      */ }
+        
       
-      </main>
+    
     </>
   )
 }
