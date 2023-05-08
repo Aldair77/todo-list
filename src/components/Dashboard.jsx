@@ -1,14 +1,14 @@
 import React from 'react'
 import Menubar from './Menubar'
 import Buttongroup from './Buttongroup'
-import AppBar from './menu/AppBar'
+import Appheader from './menu/Appheader'
 
 function Dashboard() {
   return (
     <>
-    
+    <Appheader/>
     <Buttongroup/>
-    <AppBar/>
+    
     <div></div>
     </>
     

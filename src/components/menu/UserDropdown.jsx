@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import { getUserData, removeLogin } from '../../helper/localStorage';
 import {
   Avatar,
+  Box,
   Dialog,
   DialogActions,
   DialogContent,
@@ -109,13 +110,15 @@ export default function UserDropdown() {
         onClick={handleClick}
         size="medium"
       >
-        <Avatar sx={{ width: 30, height: 30, marginRight: 1, backgroundColor: 'rgb(255,255,255)' }} variant="circular">
-          <img
-            src={'https://app.orbitec.pe/img/logo.7d1fa44a.png'}
-            alt="Avatar"
-            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-          />
-        </Avatar>
+        <Box sx={{padding:2}}>
+          <Avatar sx={{ width: 40, height: 40, marginRight: 1, backgroundColor: 'rgb(255,255,255)' }} variant="circular">
+            <img
+              src={'https://app.orbitec.pe/img/logo.7d1fa44a.png'}
+              alt="Avatar"
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+            />
+          </Avatar>
+        </Box>  
         <Stack alignItems="start">
           {/*<Typography variant="body2">{`${userData.first_name} ${userData.last_name}`.trim()}</Typography>*/}
           <Typography
