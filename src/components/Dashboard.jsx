@@ -7,7 +7,7 @@ function Dashboard() {
   return (
     <>
     <Appheader/>
-    <Buttongroup/>
+    
     
     <div></div>
     </>

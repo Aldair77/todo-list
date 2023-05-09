@@ -4,6 +4,21 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import { styled } from '@mui/material/styles';
+import { purple } from '@mui/material/colors';
+
+const ColorButton = styled(Tab)(({ theme }) => ({
+  color: theme.palette.getContrastText(purple[500]),
+  backgroundColor: purple[500],
+  '&:hover': {
+    backgroundColor: purple[700],
+  },
+  '& > *': {
+    m: 1,
+  },
+}));
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -38,7 +53,7 @@ function a11yProps(index) {
   };
 }
 
-export default function HMenu() {
+export default function VMenu() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -47,7 +62,7 @@ export default function HMenu() {
 
   return (
     <Box
-      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 224 }}
+      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex'}}
     >
       <Tabs
         orientation="vertical"
@@ -55,10 +70,12 @@ export default function HMenu() {
         value={value}
         onChange={handleChange}
         aria-label="Vertical tabs example"
-        sx={{ borderRight: 1, borderColor: 'divider' }}
-      >
-        <Tab label="Item One" {...a11yProps(0)} />
-        <Tab label="Item Two" {...a11yProps(1)} />
+        sx={{ borderRight: 1, borderColor: 'divider',bgcolor:'rgb(230, 231, 232 )' }}
+      > 
+        
+           
+        <Tab sx={{  bgcolor: '#fff', display: 'flex',borderRadius:2,margin:1}} label="Item Three" {...a11yProps(0)} />     
+        <Tab label="Item Three" {...a11yProps(1)} />
         <Tab label="Item Three" {...a11yProps(2)} />
         <Tab label="Item Four" {...a11yProps(3)} />
         <Tab label="Item Five" {...a11yProps(4)} />
@@ -66,7 +83,7 @@ export default function HMenu() {
         <Tab label="Item Seven" {...a11yProps(6)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-        Item One
+          Item One
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two

@@ -6,7 +6,7 @@ import Header from './Header';
 import AppBar from '@mui/material/AppBar';
 import { Box } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import HMenu from './HMenu';
+import VMenu from './VMenu';
   
 const whiteTheme = createTheme({
   palette: {
@@ -20,14 +20,15 @@ const whiteTheme = createTheme({
 
 function Appheader() {
 
+  const drawerWidth = 420; // -- tamaño de sidebar
 
   return (
     <>
       <ThemeProvider theme={whiteTheme}>
-        <AppBar position="static" >
+        <AppBar position="static" sx={{width: `calc(100% - ${drawerWidth}px)`,marginLeft: drawerWidth}}>
           
           <Box display="flex">
-             <UserDropdown />
+             
 
               <Header/>
           </Box>
@@ -36,8 +37,10 @@ function Appheader() {
 
 
         </AppBar>
+       
       </ThemeProvider>
-      <HMenu/>
+       <UserDropdown />
+        <VMenu/>
     </>
   )
 }

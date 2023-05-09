@@ -111,7 +111,7 @@ export default function UserDropdown() {
         size="medium"
       >
         <Box sx={{padding:2}}>
-          <Avatar sx={{ width: 40, height: 40, marginRight: 1, backgroundColor: 'rgb(255,255,255)' }} variant="circular">
+          <Avatar sx={{ width: 80, height: 80, marginRight: 1, backgroundColor: 'rgb(255,255,255)' }} variant="circular">
             <img
               src={'https://app.orbitec.pe/img/logo.7d1fa44a.png'}
               alt="Avatar"
