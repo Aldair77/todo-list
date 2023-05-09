@@ -25,7 +25,7 @@ function Appheader() {
   return (
     <>
       <ThemeProvider theme={whiteTheme}>
-        <AppBar position="static" sx={{width: `calc(100% - ${drawerWidth}px)`,marginLeft: drawerWidth}}>
+        <AppBar elevation={0} position="absolute"  sx={{width: `calc(100% - 170px)` }}>
           
           <Box display="flex">
              

@@ -8,16 +8,7 @@ import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
 
-const ColorButton = styled(Tab)(({ theme }) => ({
-  color: theme.palette.getContrastText(purple[500]),
-  backgroundColor: purple[500],
-  '&:hover': {
-    backgroundColor: purple[700],
-  },
-  '& > *': {
-    m: 1,
-  },
-}));
+
 
 
 function TabPanel(props) {
@@ -54,6 +45,7 @@ function a11yProps(index) {
 }
 
 export default function VMenu() {
+  const Tabstyled ={bgcolor: '#fff', display: 'flex',borderRadius:2,margin:1}
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -74,13 +66,13 @@ export default function VMenu() {
       > 
         
            
-        <Tab sx={{  bgcolor: '#fff', display: 'flex',borderRadius:2,margin:1}} label="Item Three" {...a11yProps(0)} />     
-        <Tab label="Item Three" {...a11yProps(1)} />
-        <Tab label="Item Three" {...a11yProps(2)} />
-        <Tab label="Item Four" {...a11yProps(3)} />
-        <Tab label="Item Five" {...a11yProps(4)} />
-        <Tab label="Item Six" {...a11yProps(5)} />
-        <Tab label="Item Seven" {...a11yProps(6)} />
+        <Tab sx={Tabstyled}label="Soporte" {...a11yProps(0)} />     
+        <Tab sx={Tabstyled} label="Monitoreo" {...a11yProps(1)} />
+        <Tab sx={Tabstyled} label="Back end" {...a11yProps(2)} />
+        <Tab sx={Tabstyled} label="Front end" {...a11yProps(3)} />
+        <Tab sx={Tabstyled} label="Area de Diseño" {...a11yProps(4)} />
+        <Tab sx={Tabstyled} label="Control" {...a11yProps(5)} />
+        <Tab sx={Tabstyled} label="Item Seven" {...a11yProps(6)} />
       </Tabs>
       <TabPanel value={value} index={0}>
           Item One

@@ -110,7 +110,7 @@ export default function UserDropdown() {
         onClick={handleClick}
         size="medium"
       >
-        <Box sx={{padding:2}}>
+        <Box sx={{padding:4}}>
           <Avatar sx={{ width: 80, height: 80, marginRight: 1, backgroundColor: 'rgb(255,255,255)' }} variant="circular">
             <img
               src={'https://app.orbitec.pe/img/logo.7d1fa44a.png'}
