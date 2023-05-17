@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 /*import styles from '@/styles/Home.module.css'*/
-import LoginLayout from '../Components/LoginLayout'
+import LoginLayout from './Login/LoginLayout'
 import {supabase} from '../utils/supabaseClient'
-import Dashboard from '../components/Dashboard'
+import Dashboard from './Dashboard/Dashboard'
 import { useState, useEffect } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })

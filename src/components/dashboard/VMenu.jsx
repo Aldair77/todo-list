@@ -54,9 +54,9 @@ export default function VMenu() {
 
   return (
     <Box
-      sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex'}}
+      sx={{ flexGrow: 1, display: 'flex',width:300}}
     >
-      <Tabs
+      <Tabs //--- Inicio Botonera vertical ----
         orientation="vertical"
         variant="scrollable"
         value={value}
@@ -73,7 +73,8 @@ export default function VMenu() {
         <Tab sx={Tabstyled} label="Area de Diseño" {...a11yProps(4)} />
         <Tab sx={Tabstyled} label="Control" {...a11yProps(5)} />
         <Tab sx={Tabstyled} label="Item Seven" {...a11yProps(6)} />
-      </Tabs>
+      </Tabs> { /* --- Fin Botonera vertical --- */ }
+      
       <TabPanel value={value} index={0}>
           Item One
       </TabPanel>
