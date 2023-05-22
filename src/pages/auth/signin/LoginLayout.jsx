@@ -15,7 +15,7 @@ import { TextField } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import Snackbar from "@mui/material/Snackbar";
 /*import Alert from '@mui/material/Alert';*/
-import { supabase } from "../../utils/supabaseClient";
+import { supabase } from "../../../utils/supabaseClient";
 import Link from "@mui/material/Link";
 
 function LoginLayout() {

@@ -20,6 +20,7 @@ import {
 } from '@mui/material';
 // import ReportIcon from '@mui/icons-material/Report';
 import { clearMenus } from '../../helper/sessionStorage';
+import Image from 'next/image';
 /*import { useAppContext } from '../../context/Provider';
 import Welcome from '../../pages/reports/Welcome';*/
 
@@ -97,6 +98,10 @@ export default function UserDropdown() {
     setOpen(false);
   };
 
+  
+  const imageLoader = () => {
+    return 'https://app.orbitec.pe/img/logo.7d1fa44a.png';
+  };
   //
   return (
     <>
@@ -112,10 +117,13 @@ export default function UserDropdown() {
       >
         <Box sx={{padding:4}}>
           <Avatar sx={{ width: 80, height: 80, marginRight: 1, backgroundColor: 'rgb(255,255,255)' }} variant="circular">
-            <img
-              src={'https://app.orbitec.pe/img/logo.7d1fa44a.png'}
-              alt="Avatar"
-              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+          <Image
+              loader={imageLoader}
+              src='me.png'
+              alt="Picture of the author"
+              width={80}
+              height={80}
+              priority={true}
             />
           </Avatar>
         </Box>  

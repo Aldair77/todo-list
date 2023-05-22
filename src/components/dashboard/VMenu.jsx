@@ -4,9 +4,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import { styled } from "@mui/material/styles";
-import { purple } from "@mui/material/colors";
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -55,7 +53,7 @@ export default function VMenu() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, display: "flex", width: 300 }}>
+    <Box sx={{ display: "flex", width:200 }}>
       <Tabs //--- Inicio Botonera vertical ----
         orientation="vertical"
         variant="scrollable"
