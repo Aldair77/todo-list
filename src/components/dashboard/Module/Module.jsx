@@ -27,7 +27,7 @@ export default function Module() {
     borderRadius: 10,
     justifyContent: "center",
     ml: 6,
-    backgroundColor: (theme) => (theme.palette.mode = "#1A2027"),
+    backgroundColor: (theme) => (theme.palette.mode = "#f2f2f2"),
   };
   return (
     <Grid sx={{ flexGrow: 1, display: "flex" }}>
@@ -38,25 +38,25 @@ export default function Module() {
           columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           gap={3}
         >
-          <Box sx={StylePaper}>
+          <Paper elevation={1} sx={StylePaper}>
             <Box sx={StyleBox}>
               <h3>Tareas en Total</h3>
             </Box>
             <Box sx={StyleBoxpie}>
               <PieChart m={2} />
             </Box>
-          </Box>
+          </Paper>
 
-          <Box sx={StylePaper}>
+          <Paper elevation={1} sx={StylePaper}>
             <Box sx={StyleBox}>
               <h3>Tareas Pendientes</h3>
             </Box>
             <Box sx={StyleBoxpie}>
               <PieChart />
             </Box>
-          </Box>
+          </Paper>
 
-          <Paper sx={StylePaper}>
+          <Paper elevation={1} sx={StylePaper}>
             <Box sx={StyleBox}>
               <h3>Tareas completadas</h3>
             </Box>
@@ -65,13 +65,13 @@ export default function Module() {
             </Box>
           </Paper>
         </Grid>
-        <Paper
+        <Paper elevation={1}
           sx={{
             width: 500,
             height: 200,
             mt: 6,ml:3,
             borderRadius: 10,
-            backgroundColor: (theme) => (theme.palette.mode = "#1A2027"),
+            backgroundColor: (theme) => (theme.palette.mode = "#f2f2f2"),
           }}
         >
           <Box

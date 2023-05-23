@@ -100,7 +100,7 @@ export default function UserDropdown() {
 
   
   const imageLoader = () => {
-    return 'https://app.orbitec.pe/img/logo.7d1fa44a.png';
+    return ' ';
   };
   //
   return (
