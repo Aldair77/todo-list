@@ -24,18 +24,31 @@ const session = supabase.auth.session()
 
       <Dashboard/>
     
-        { /*
-            <div className={styles.center}>
-              
-              { authsession != null ? <Dashboard/> :  }
-              
-            
-
-            </div>
-      */ }
-        
+       
       
     
     </>
   )
 }
+
+{/* const Home = ({ user }) => {
+  return (
+    <MainLayout>
+      <div className="container-wrapper">{!user ? <UserNotLogged /> : <HomeContainer />}</div>
+      <style jsx>
+        {`
+          .container-wrapper {
+            width: 100%;
+            margin-top: 80px;
+          }
+        `}
+      </style>
+    </MainLayout>
+  );
+};
+
+Home.propTypes = {
+  user: PropTypes.object,
+};
+
+export default withUser(Home); */}

@@ -3,7 +3,7 @@ import React from "react";
 import Appheader from "../../components/menu/Appheader";
 
 import { Box } from "@mui/material";
-import DashboardLayout from "../../components/dashboard/DashboardLayout";
+import DashboardLayout from "../../container/HomeContainer/DashboardLayout";
 function Dashboard() {
   return (
     <>

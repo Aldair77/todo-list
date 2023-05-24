@@ -1,6 +1,6 @@
 import React from "react";
 import VMenu from "./VMenu";
-import Module from "./Module/Module";
+import Module from "./Module";
 import { Box } from "@mui/material";
 
 

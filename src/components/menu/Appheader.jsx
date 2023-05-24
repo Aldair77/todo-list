@@ -5,7 +5,7 @@ import Header from "./Header";
 import AppBar from "@mui/material/AppBar";
 import { Box } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import VMenu from "../dashboard/VMenu";
+import VMenu from "../../container/HomeContainer/VMenu";
 
 const whiteTheme = createTheme({
   palette: {
