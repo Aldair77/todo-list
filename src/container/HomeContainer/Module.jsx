@@ -3,6 +3,8 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { Box, Container } from "@mui/material";
 import PieChart from "@/components/chartjs/PieChart";
+import Cardx from "./Cardx";
+import BarChart from "@/components/chartjs/BarChart";
 
 export default function Module() {
   const StyleBox = {
@@ -26,17 +28,18 @@ export default function Module() {
     width: 300,
     borderRadius: 10,
     justifyContent: "center",
-    ml: 6,
+    mr: 6,
     backgroundColor: (theme) => (theme.palette.mode = "#f2f2f2"),
   };
   return (
     <Grid sx={{ flexGrow: 1, display: "flex" }}>
-      <Grid gap={1}>
+      <Grid gap={1} sx={{ justifyContent: "center", width: 1300 }}>
         <Grid
           container
           rowSpacing={1}
           columnSpacing={{ xs: 1, sm: 2, md: 3 }}
           gap={3}
+          sx={{ justifyContent: "center", width: "100vh" }}
         >
           <Paper elevation={1} sx={StylePaper}>
             <Box sx={StyleBox}>
@@ -65,9 +68,8 @@ export default function Module() {
             </Box>
           </Paper>
         </Grid>
-        
-        
-        <Paper elevation={1}
+
+        {/* <Paper elevation={1}
           sx={{
             width: 500,
             height: 200,
@@ -90,8 +92,15 @@ export default function Module() {
           >
             Tareas Nuevas
           </Box>
-        </Paper>
+          </Paper>*/}
+        <Cardx />
+        <Container sx={{width:1200,height:200, justifyContent:'center',display:'center',mt:5}}>
+        <Box  sx={{width:1100 ,height:200}}>
+          <BarChart/>
+        </Box>
+        </Container>
       </Grid>
+      
     </Grid>
   );
 }
