@@ -28,8 +28,8 @@ export default function Cardx() {
 
   return (
     <>
-      <Container  sx={{display:'flex',justifyContent:'center',mt:5}}>
-        <Card sx={{ maxWidth: 300, borderRadius: "20px" ,mr: 2}}>
+      <Container sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
+        <Card sx={{ maxWidth: 300, borderRadius: "20px", mr: 2 }}>
           <CardContent
             sx={{ bgcolor: "rgb(230, 231, 232 )", alignContent: "center" }}
           >
@@ -42,14 +42,10 @@ export default function Cardx() {
               <Box sx={StyleBox}></Box>
               <Box sx={StyleBox}></Box>
             </Box>
-            <Box sx={StyleBox2}>
-           
-                Historial
-             
-            </Box>
+            <Box sx={StyleBox2}>Historial</Box>
           </CardContent>
         </Card>
-        <Card sx={{ maxWidth: 300, borderRadius: "20px" ,mr: 2}}>
+        <Card sx={{ maxWidth: 300, borderRadius: "20px", mr: 2 }}>
           <CardContent
             sx={{ bgcolor: "rgb(230, 231, 232 )", alignContent: "center" }}
           >
@@ -62,14 +58,10 @@ export default function Cardx() {
               <Box sx={StyleBox}></Box>
               <Box sx={StyleBox}></Box>
             </Box>
-            <Box sx={StyleBox2}>
-           
-                Historial
-             
-            </Box>
+            <Box sx={StyleBox2}>Historial</Box>
           </CardContent>
         </Card>
-        <Card sx={{ maxWidth: 300, borderRadius: "20px" ,mr: 2}}>
+        <Card sx={{ maxWidth: 300, borderRadius: "20px", mr: 2 }}>
           <CardContent
             sx={{ bgcolor: "rgb(230, 231, 232 )", alignContent: "center" }}
           >
@@ -82,11 +74,7 @@ export default function Cardx() {
               <Box sx={StyleBox}></Box>
               <Box sx={StyleBox}></Box>
             </Box>
-            <Box sx={StyleBox2}>
-              
-                Historial
-             
-            </Box>
+            <Box sx={StyleBox2}>Historial</Box>
           </CardContent>
         </Card>
         <Card sx={{ maxWidth: 300, borderRadius: "20px" }}>
@@ -102,11 +90,7 @@ export default function Cardx() {
               <Box sx={StyleBox}></Box>
               <Box sx={StyleBox}></Box>
             </Box>
-            <Box sx={StyleBox2}>
-              
-                Historial
-              
-            </Box>
+            <Box sx={StyleBox2}>Historial</Box>
           </CardContent>
         </Card>
       </Container>

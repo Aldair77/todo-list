@@ -5,7 +5,7 @@ import Header from "./Header";
 import AppBar from "@mui/material/AppBar";
 import { Box } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import VMenu from "../../container/HomeContainer/VMenu";
+import VMenu from "../sidebar/Sidebar";
 
 const whiteTheme = createTheme({
   palette: {
@@ -16,7 +16,7 @@ const whiteTheme = createTheme({
   },
 });
 
-function Appheader() {
+function IndexHeader() {
   const drawerWidth = 420; // -- tamaño de sidebar
 
   return (
@@ -37,4 +37,4 @@ function Appheader() {
   );
 }
 
-export default Appheader;
+export default IndexHeader;

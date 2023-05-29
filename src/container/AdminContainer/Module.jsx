@@ -5,6 +5,8 @@ import { Box, Container } from "@mui/material";
 import PieChart from "@/components/chartjs/PieChart";
 import Cardx from "./Cardx";
 import BarChart from "@/components/chartjs/BarChart";
+import Link from 'next/link';
+
 
 export default function Module() {
   const StyleBox = {
@@ -41,14 +43,16 @@ export default function Module() {
           gap={3}
           sx={{ justifyContent: "center", width: "100vh" }}
         >
-          <Paper elevation={1} sx={StylePaper}>
-            <Box sx={StyleBox}>
-              <h3>Tareas en Total</h3>
-            </Box>
-            <Box sx={StyleBoxpie}>
-              <PieChart m={2} />
-            </Box>
-          </Paper>
+          <Link href="/admin/default/Task/Task">
+            <Paper elevation={1} sx={StylePaper}>
+              <Box sx={StyleBox}>
+                <h3>Tareas en Total</h3>
+              </Box>
+              <Box sx={StyleBoxpie}>
+                <PieChart m={2} />
+              </Box>
+            </Paper>
+          </Link>
 
           <Paper elevation={1} sx={StylePaper}>
             <Box sx={StyleBox}>

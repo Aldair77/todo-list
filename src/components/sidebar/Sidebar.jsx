@@ -39,7 +39,7 @@ function a11yProps(index) {
   };
 }
 
-export default function VMenu() {
+export default function Sidebar() {
   const Tabstyled = {
     bgcolor: "#fff",
     display: "flex",

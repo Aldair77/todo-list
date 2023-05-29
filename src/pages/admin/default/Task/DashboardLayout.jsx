@@ -1,14 +1,15 @@
 import React from "react";
-import VMenu from "./VMenu";
-import Module from "./Module";
+import Sidebar from "@/components/sidebar/Sidebar";
 import { Box } from "@mui/material";
+import { ModuleTask } from "@/container/AdminContainer/ModuleTask";
+
 
 function DashboardLayout() {
   return (
     <>
       <Box sx={{ display: "flex" }}>
-        <VMenu />
-        <Module />
+        <Sidebar />
+        <ModuleTask />
       </Box>
     </>
   );
