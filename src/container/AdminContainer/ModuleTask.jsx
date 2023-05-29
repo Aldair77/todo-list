@@ -1,13 +1,18 @@
-import React from 'react'
+"use client";
+import { useTasks } from "@/context/TasksContext";
 import { VscTasklist } from "react-icons/vsc"; 
 import {TaskCard} from '@/components/taskcard/TaskCard'
+import {RootLayout} from './layout'
+
 
 function ModuleTask() {
+  const { tasks } = useTasks();
   return (
+    <>
     <div className="flex justify-center">
       {tasks.length === 0 ? (
         <div className="block">
-          <h2 className="text-2xl">There are no tasks</h2>
+          <h2 className="text-2xl">No hay Tareas</h2>
           <VscTasklist size="8rem" />
         </div>
       ) : (
@@ -18,6 +23,10 @@ function ModuleTask() {
         </div>
       )}
     </div>
+    <div>
+      <RootLayout/>
+    </div>
+    </>       
   )
 }
 

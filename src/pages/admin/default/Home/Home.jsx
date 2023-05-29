@@ -1,5 +1,5 @@
 import React from "react";
-import IndexHeader from "../../../../components/Header/IndexHeader";
+import IndexHeader from "@/components/Header/IndexHeader";
 import { Box } from "@mui/material";
 import DashboardLayout from "./DashboardLayout";
 

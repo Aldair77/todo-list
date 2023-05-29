@@ -1,7 +1,7 @@
-import { useTasks } from "../context/TasksContext";
+import { useTasks } from "@/context/TasksContext";
 import { useRouter } from "next/navigation";
 import { VscTrash } from "react-icons/vsc";
-import { toast } from "react-hot-toast";
+import { toast } from "react-hot-toast"; 
 
 export const TaskCard = ({ task }) => {
   const { deleteTask } = useTasks();

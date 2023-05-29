@@ -1,8 +1,8 @@
-import React from 'react'
-import DashboardLayout from './DashboardLayout'
-import IndexHeader from '@/components/Header/IndexHeader'
+import {DashboardLayout} from './DashboardLayout'
+import {IndexHeader} from '@/components/Header/IndexHeader'
+import { Box } from '@mui/material'
 
-function Task() {
+function Task() { /* Page de tareas */
   return (
     <>
     <Box>
