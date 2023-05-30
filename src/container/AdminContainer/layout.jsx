@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    
+    <html>
       <body>
         <TasksProvider>
           <Navbar />
@@ -18,6 +18,6 @@ export default function RootLayout({ children }) {
         </TasksProvider>
         <Toaster />
       </body>
-    
+    </html>
   );
 }

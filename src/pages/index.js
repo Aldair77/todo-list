@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import Dashboard from './admin/default/Home/Home'
 import '../styles/Home.module.css'
 
+import Task from './admin/default/Task/Task'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -23,8 +25,8 @@ const session = supabase.auth.session()
       </Head>
 
       <Dashboard/>
-    
-       
+
+      <Task/>    
       
     
     </>

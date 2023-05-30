@@ -12,7 +12,7 @@ export const useTasks = () => {
 };
 
 export const TasksProvider = ({ children }) => {
-  // save in localStorage
+  // guardar en localStorage
   const [tasks, setTasks] = useLocalStorage("tasks", []);
 
   const createTask = (title, description) =>

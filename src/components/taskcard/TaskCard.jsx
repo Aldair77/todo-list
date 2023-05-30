@@ -20,13 +20,13 @@ export const TaskCard = ({ task }) => {
             onClick={(e) => {
               e.stopPropagation();
               const accept = confirm(
-                "Are you sure you want to delete this task?"
+                "Estas seguro que quiere borrar la tarea?"
               );
               if (accept) deleteTask(task.id);
-              toast.success("Task deleted successfully");
+              toast.success("Tarea eliminada con éxito");
             }}
           >
-            <VscTrash className="mr-2" /> Delete
+            <VscTrash className="mr-2" /> Borrar
           </button>
         </div>
         <p className="text-gray-300">{task.description}</p>

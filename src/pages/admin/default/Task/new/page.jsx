@@ -18,10 +18,10 @@ const TaskFormPage = ({ params }) => {
   const onSubmit = handleSubmit((data) => {
     if (!params.id) {
       createTask(data.title, data.description);
-      toast.success("Task created successfully");
+      toast.success("Tarea creada con éxito");
     } else {
       updateTask(params.id, data);
-      toast.success("Task updated successfully");
+      toast.success("Tarea actualizada correctamente");
     }
     router.push("/");
   });
@@ -52,7 +52,7 @@ const TaskFormPage = ({ params }) => {
         />
         {errors.title && (
           <span className="block text-red-400 mb-2">
-            This field is required
+            Este campo es requerido
           </span>
         )}
 
@@ -65,12 +65,12 @@ const TaskFormPage = ({ params }) => {
         />
         {errors.description && (
           <span className="block text-red-400 mb-2">
-            This field is required
+            Este campo es requerido
           </span>
         )}
 
         <button className="bg-green-500 hover:bg-green-400 px-4 py-2 rounded-sm disabled:opacity-30">
-          Save
+          Guardar
         </button>
       </form>
     </div>
