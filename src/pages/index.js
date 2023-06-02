@@ -25,8 +25,8 @@ const session = supabase.auth.session()
       </Head>
 
       <Dashboard/>
-
-      <Task/>    
+     
+   
       
     
     </>

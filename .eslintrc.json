@@ -1,3 +1,10 @@
 {
   "extends": "next/core-web-vitals"
 }
+
+/* Eslint desactivado */
+{
+  "rules": {
+    "no-alert": "off"
+  }
+}
