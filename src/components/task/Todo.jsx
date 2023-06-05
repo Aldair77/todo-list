@@ -34,8 +34,7 @@ export const Todo = ({ task, deleteTodo, editTodo, toggleComplete }) => {
       </Box>
       <Box sx={{ width: 250, textAlign: "right" }}>
         <Button variant="outline">
-          <EditIcon onClick={() => editTodo(task.id)}/>
-                  
+          <EditIcon onClick={() => editTodo(task.id)} />
         </Button>
         <Button variant="outline">
           <DeleteIcon onClick={() => deleteTodo(task.id)} />

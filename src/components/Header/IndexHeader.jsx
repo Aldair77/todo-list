@@ -1,11 +1,8 @@
 import UserDropdown from "./UserDropdown";
-import { styled } from "@mui/material/styles";
-import { useState } from "react";
 import Header from "./Header";
 import AppBar from "@mui/material/AppBar";
 import { Box } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import VMenu from "../sidebar/Sidebar";
 
 const whiteTheme = createTheme({
   palette: {

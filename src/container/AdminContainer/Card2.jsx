@@ -29,7 +29,9 @@ function Card2() {
 
   return (
     <>
-      <Container>  { /*Contenedor de los Cards */ }
+      <Container>
+        {" "}
+        {/*Contenedor de los Cards */}
         <Box elevation={1} sx={StylePaper}>
           <Box sx={StyleBox}>
             <h3>Tareas en Total</h3>

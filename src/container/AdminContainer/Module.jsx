@@ -5,8 +5,7 @@ import { Box, Container } from "@mui/material";
 import PieChart from "@/components/chartjs/PieChart";
 import Cardx from "./Cardx";
 import BarChart from "@/components/chartjs/BarChart";
-import Link from 'next/link';
-
+import Link from "next/link";
 
 export default function Module() {
   const StyleBox = {
@@ -98,13 +97,20 @@ export default function Module() {
           </Box>
           </Paper>*/}
         <Cardx />
-        <Container sx={{width:1200,height:200, justifyContent:'center',display:'center',mt:5}}>
-        <Box  sx={{width:1100 ,height:200}}>
-          <BarChart/>
-        </Box>
+        <Container
+          sx={{
+            width: 1200,
+            height: 200,
+            justifyContent: "center",
+            display: "center",
+            mt: 5,
+          }}
+        >
+          <Box sx={{ width: 1100, height: 200 }}>
+            <BarChart />
+          </Box>
         </Container>
       </Grid>
-      
     </Grid>
   );
 }

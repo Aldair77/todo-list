@@ -8,10 +8,6 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { useNavigate } from "react-router-dom";
 import { TextField } from "@mui/material";
-/*import { useForm } from 'react-hook-form';*/
-/*import { baseUrl } from '../../helper/config';*/
-/*import axios from 'axios';*/
-/*import { saveLogin } from '../../helper/localStorage';*/
 import { LoadingButton } from "@mui/lab";
 import Snackbar from "@mui/material/Snackbar";
 /*import Alert from '@mui/material/Alert';*/

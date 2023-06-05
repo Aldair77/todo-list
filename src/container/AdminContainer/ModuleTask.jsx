@@ -1,47 +1,12 @@
-/*
-"use client";
-import { useTasks } from "@/context/TasksContext";
-import { VscTasklist } from "react-icons/vsc"; 
-import {TaskCard} from '@/components/taskcard/TaskCard'
-import {RootLayout} from './layout'
-
-
-function ModuleTask() {
-  const { tasks } = useTasks();
-  return (
-    <>
-    <div className="flex justify-center">
-      {tasks.length === 0 ? (
-        <div className="block">
-          <h2 className="text-2xl">No hay Tareas</h2>
-          <VscTasklist size="8rem" />
-        </div>
-      ) : (
-        <div className="w-7/10">
-          {tasks.map((task, i) => (
-            <TaskCard task={task} key={i} />
-          ))}
-        </div>
-      )}
-    </div>
-    <div>
-      <RootLayout/>
-    </div>
-    </>       
-  )
-}
-
-export default ModuleTask */
-import { TodoWrapper } from "@/components/subcomponents/TodoWrapper";
 import { Container, Grid, Paper } from "@mui/material";
 import Link from "next/link";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { TodoForm } from "@/components/subcomponents/TodoForm";
-import { Todo } from "@/components/subcomponents/Todo";
+import { TodoForm } from "@/components/task/TodoForm";
+import { Todo } from "@/components/task/Todo";
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { EditTodoForm } from "@/components/subcomponents/EditTodoForm";
+import { EditTodoForm } from "@/components/task/EditTodoForm";
 import "../../styles/Home.module.css";
 
 function ModuleTask() {
@@ -116,7 +81,7 @@ function ModuleTask() {
 
         {todos.map((todo) =>
           todo.isEditing ? (
-            <EditTodoForm editTodo={editTask} task={todo}  />
+            <EditTodoForm editTodo={editTask} task={todo} />
           ) : (
             <div className="CardTask">
               <Todo
@@ -130,79 +95,6 @@ function ModuleTask() {
           )
         )}
       </Container>
-      <Container sx={{ width: 300 }}>
-        <ColumUser>
-          <Box sx={{ bgColor: "blue", width: 150 }}>
-            <b>Usuario</b>
-          </Box>
-          <TodoForm addTodo={addTodo} />
-        </ColumUser>
-
-        {todos.map((todo) =>
-          todo.isEditing ? (
-            <EditTodoForm editTodo={editTask} task={todo}  />
-          ) : (
-            <div className="CardTask">
-              <Todo
-                key={todo.id}
-                task={todo}
-                deleteTodo={deleteTodo}
-                editTodo={editTodo}
-                toggleComplete={toggleComplete}
-              />
-            </div>
-          )
-        )}
-      </Container>
-      <Container sx={{ width: 300 }}>
-        <ColumUser>
-          <Box sx={{ bgColor: "blue", width: 150 }}>
-            <b>Usuario</b>
-          </Box>
-          <TodoForm addTodo={addTodo} />
-        </ColumUser>
-
-        {todos.map((todo) =>
-          todo.isEditing ? (
-            <EditTodoForm editTodo={editTask} task={todo}  />
-          ) : (
-            <div className="CardTask">
-              <Todo
-                key={todo.id}
-                task={todo}
-                deleteTodo={deleteTodo}
-                editTodo={editTodo}
-                toggleComplete={toggleComplete}
-              />
-            </div>
-          )
-        )}
-      </Container>
-      <Container sx={{ width: 300 }}>
-        <ColumUser>
-          <Box sx={{ bgColor: "blue", width: 150 }}>
-            <b>Usuario</b>
-          </Box>
-          <TodoForm addTodo={addTodo} />
-        </ColumUser>
-
-        {todos.map((todo) =>
-          todo.isEditing ? (
-            <EditTodoForm editTodo={editTask} task={todo}  />
-          ) : (
-            <div className="CardTask">
-              <Todo
-                key={todo.id}
-                task={todo}
-                deleteTodo={deleteTodo}
-                editTodo={editTodo}
-                toggleComplete={toggleComplete}
-              />
-            </div>
-          )
-        )}
-      </Container>
-      
     </Grid>
   );
 }

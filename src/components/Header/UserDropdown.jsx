@@ -1,11 +1,6 @@
-import { forwardRef, useState } from 'react';
-// import { styled, alpha } from '@mui/material/styles';
-import Button from '@mui/material/Button';
-// import Menu from '@mui/material/Menu';
-// import MenuItem from '@mui/material/MenuItem';
-// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';  / -- Ocultar el boton de desconectar
-import { useRouter } from 'next/router';
-import { getUserData, removeLogin } from '../../helper/localStorage';
+import { forwardRef, useState } from "react";
+import Button from "@mui/material/Button";
+import { useRouter } from "next/router";
 import {
   Avatar,
   Box,
@@ -17,50 +12,9 @@ import {
   Slide,
   Stack,
   Typography,
-} from '@mui/material';
-// import ReportIcon from '@mui/icons-material/Report';
-import { clearMenus } from '../../helper/sessionStorage';
-import Image from 'next/image';
-/*import { useAppContext } from '../../context/Provider';
-import Welcome from '../../pages/reports/Welcome';*/
+} from "@mui/material";
+import Image from "next/image";
 
-/* const StyledMenu = styled((props) => (
-  <Menu
-    elevation={0}
-    anchorOrigin={{
-      vertical: 'bottom',
-      horizontal: 'right',
-    }}
-    transformOrigin={{
-      vertical: 'top',
-      horizontal: 'right',
-    }}
-    {...props}
-  />
-))(({ theme }) => ({
-  '& .MuiPaper-root': {
-    borderRadius: 6,
-    marginTop: theme.spacing(1),
-    minWidth: 180,
-    color: theme.palette.mode === 'light' ? 'rgb(55, 65, 81)' : theme.palette.grey[300],
-    boxShadow:
-      'rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
-    '& .MuiMenu-list': {
-      padding: '4px 0',
-    },
-    '& .MuiMenuItem-root': {
-      '& .MuiSvgIcon-root': {
-        fontSize: 18,
-        color: theme.palette.text.secondary,
-        marginRight: theme.spacing(1.5),
-      },
-      '&:active': {
-        backgroundColor: alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
-      },
-    },
-  },
-}));
-*/
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -74,33 +28,23 @@ export default function UserDropdown() {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  /* const handleClose = () => {
-    setAnchorEl(null);
-  }; */
 
-  const navigate = useRouter(); 
-
-   /*const userData = getUserData(); */
+  const navigate = useRouter();
 
   const handleLogout = () => {
     clearMenus();
     removeLogin();
-    navigate('/login');
+    navigate("/login");
     handleCloses();
-   /*replaceContent(<Welcome />);*/
+    /*replaceContent(<Welcome />);*/
   };
 
-  /* const handleClickOpen = () => {
-    setOpen(true);
-    handleClose();
-  }; */
   const handleCloses = () => {
     setOpen(false);
   };
 
-  
   const imageLoader = () => {
-    return ' ';
+    return " ";
   };
   //
   return (
@@ -108,32 +52,40 @@ export default function UserDropdown() {
       <Button
         color="inherit"
         id="demo-customized-button"
-        aria-controls={open ? 'demo-customized-menu' : undefined}
+        aria-controls={open ? "demo-customized-menu" : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
+        aria-expanded={open ? "true" : undefined}
         disableElevation
         onClick={handleClick}
         size="medium"
       >
-        <Box sx={{padding:4}}>
-          <Avatar sx={{ width: 80, height: 80, marginRight: 1, backgroundColor: 'rgb(255,255,255)' }} variant="circular">
-          <Image
+        <Box sx={{ padding: 4 }}>
+          <Avatar
+            sx={{
+              width: 80,
+              height: 80,
+              marginRight: 1,
+              backgroundColor: "rgb(255,255,255)",
+            }}
+            variant="circular"
+          >
+            <Image
               loader={imageLoader}
-              src='me.png'
+              src="me.png"
               alt="Picture of the author"
               width={80}
               height={80}
               priority={true}
             />
           </Avatar>
-        </Box>  
+        </Box>
         <Stack alignItems="start">
           {/*<Typography variant="body2">{`${userData.first_name} ${userData.last_name}`.trim()}</Typography>*/}
           <Typography
             variant="caption"
             display="block"
             gutterBottom
-            style={{ textTransform: 'none', color: 'lightgray' }}
+            style={{ textTransform: "none", color: "lightgray" }}
           >
             {/*userData.username*/}
           </Typography>
@@ -165,10 +117,11 @@ export default function UserDropdown() {
         onClose={handleCloses}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{'Cerrar sesión'}</DialogTitle>
+        <DialogTitle>{"Cerrar sesión"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Al cerrar sesion no podras utilizar el sistema hasta volver a ingresar.
+            Al cerrar sesion no podras utilizar el sistema hasta volver a
+            ingresar.
           </DialogContentText>
         </DialogContent>
         <DialogActions>

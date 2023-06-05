@@ -5,7 +5,6 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -53,7 +52,7 @@ export default function Sidebar() {
   };
 
   return (
-    <Box sx={{ display: "flex", width:200 }}>
+    <Box sx={{ display: "flex", width: 200 }}>
       <Tabs //--- Inicio Botonera vertical ----
         orientation="vertical"
         variant="scrollable"
@@ -75,7 +74,6 @@ export default function Sidebar() {
         <Tab sx={Tabstyled} label="Item Seven" {...a11yProps(6)} />
       </Tabs>{" "}
       {/* --- Fin Botonera vertical --- */}
-      
       {/*
          <TabPanel value={value} index={0}>
         Item One
@@ -99,7 +97,6 @@ export default function Sidebar() {
         Item Seven
       </TabPanel>
       */}
-     
     </Box>
   );
 }

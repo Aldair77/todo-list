@@ -1,18 +1,19 @@
-import { Box, Button, Dialog } from "@mui/material";
 import React, { useState } from "react";
-
+import Button from "@mui/material/Button";
 import AddBoxIcon from "@mui/icons-material/AddBox";
-import { TextField } from "@mui/material";
+import { Box, TextField } from "@mui/material";
+import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
-import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
+import CloseIcon from "@mui/icons-material/Close";
+import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 
-export const EditTodoForm = ({ editTodo, task }) => {
-  const [value, setValue] = useState(task.task);
+export const TodoForm = ({ addTodo }) => {
+  const [value, setValue] = useState("");
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -22,12 +23,15 @@ export const EditTodoForm = ({ editTodo, task }) => {
   const handleClose = () => {
     setOpen(false);
   };
-
   const handleSubmit = (e) => {
     // prevent default action
     e.preventDefault();
-    // edit todo
-    editTodo(value, task.id);
+    if (value) {
+      // add todo
+      addTodo(value);
+      // clear form after submission
+      setValue("");
+    }
   };
 
   function BootstrapDialogTitle(props) {
@@ -40,9 +44,16 @@ export const EditTodoForm = ({ editTodo, task }) => {
     );
   }
 
+  BootstrapDialogTitle.propTypes = {
+    children: PropTypes.node,
+    onClose: PropTypes.func.isRequired,
+  };
   return (
     <>
-      
+      <Button onClick={handleClickOpen}>
+        <AddBoxIcon />
+      </Button>
+      <Dialog open={open} onClose={handleClose}>
         <BootstrapDialogTitle
           id="customized-dialog-title"
           onClose={handleClose}
@@ -63,20 +74,24 @@ export const EditTodoForm = ({ editTodo, task }) => {
             <TextField
               value={value}
               onChange={(e) => setValue(e.target.value)}
-              label="Editando Tarea"
+              label="Ingresar Tarea"
               id="outlined-multiline-static"
               fullWidth
               multiline
               rows={4}
             />
             <DialogActions sx={{ m: 1, justifyContent: "left" }}>
-              <Button variant="contained" component='label'>
+              <Button variant="contained" component="label">
                 Subir
-                <input hidden accept='image/*'multiple type='file' />
+                <input hidden accept="image/*" multiple type="file" />
               </Button>
-              <IconButton color='primary' aria-label="upload picture" component='label'>
-                <input hidden accept='image/*' type='file'/>
-                <PhotoCameraIcon/>
+              <IconButton
+                color="primary"
+                aria-label="upload picture"
+                component="label"
+              >
+                <input hidden accept="image/*" type="file" />
+                <PhotoCameraIcon />
               </IconButton>
             </DialogActions>
             <DialogActions sx={{ m: 1, justifyContent: "center" }}>
@@ -87,7 +102,7 @@ export const EditTodoForm = ({ editTodo, task }) => {
             </DialogActions>
           </DialogContent>
         </Box>
-        
+      </Dialog>
     </>
   );
 };
