@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -14,15 +15,20 @@ import Snackbar from "@mui/material/Snackbar";
 import { supabase } from "../../../utils/supabaseClient";
 import Link from "@mui/material/Link";
 
-function LoginLayout() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
+import { Redirect } from "react-router-dom";
+import axios from "axios";
+import { useAuth } from "./Auth";
+
+function Login(props) {
+ /* const [email, setEmail] = useState("");
+  /*const [password, setPassword] = useState("");*/ /*
   const [isSignUp, setIsSignUp] = useState(true);
 
   const [isOpen, setIsOpen] = useState(false);
 
   const hangleSignUp = async () => {
-    /* registro */
+    /* registro */ /*
     try {
       const { user, session, error } = await supabase.auth.signUp({
         email,
@@ -41,7 +47,7 @@ function LoginLayout() {
         email,
         password,
       });
-      /*if(error) throw error*/
+      /*if(error) throw error*/ /*
       alert("Usuario Logueado");
     } catch (e) {
       alert(e.message);
@@ -51,6 +57,48 @@ function LoginLayout() {
   const changeForm = () => {
     setIsSignUp((value) => !value);
   };
+ */
+
+
+/********************************************************/
+
+
+const [isLoggedIn, setLoggedIn] = useState(false);
+const [isError, setIsError] = useState(false);
+const [userName, setUserName] = useState("");
+const [password, setPassword] = useState("");
+const  setAuthTokens  = useAuth();
+const referer = props.location.state ? props.location.state.referer : "/";
+
+function postLogin() {
+  axios
+    .post("https://reqres.in/api/login", {
+      email: userName,
+      password
+    })
+    .then((result) => {
+      console.log("result", result);
+      if (result.status === 200) {
+        setAuthTokens(result.data);
+        setLoggedIn(true);
+        console.log(result.data);
+      } else {
+        setIsError(true);
+      }
+    })
+    .catch((e) => {
+      setIsError(true);
+      console.log(e);
+    });
+}
+
+if (isLoggedIn) {
+  return <Redirect to={referer} />;
+}
+
+
+
+/*************************************/
 
   return (
     <Container component="main" maxWidth="xs">
@@ -82,8 +130,8 @@ function LoginLayout() {
             name="username"
             autoComplete="off"
             autoFocus
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
+            onChange={(e) => setUserName(e.target.value)}
+            value={userName}
           />
           <TextField
             margin="normal"
@@ -116,7 +164,7 @@ function LoginLayout() {
 
           {!isSignUp && (
             <LoadingButton
-              onClick={hangleSignIn}
+              onClick={postLogin}
               type="submit"
               fullWidth
               variant="contained"
@@ -136,4 +184,4 @@ function LoginLayout() {
   );
 }
 
-export default LoginLayout;
+export default Login;
