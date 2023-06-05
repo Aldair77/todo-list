@@ -41,16 +41,21 @@ import { TodoForm } from "@/components/subcomponents/TodoForm";
 import { Todo } from "@/components/subcomponents/Todo";
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { EditTodoForm } from "@/components/subcomponents/EditTodoForm";
+import "../../styles/Home.module.css";
 
 function ModuleTask() {
-  const Item = styled(Paper)(({ theme }) => ({
+  const ColumUser = styled(Paper)(({ theme }) => ({
     ...theme.body2,
-    textAlign: "left",
+    textAlign: "center",
     color: theme.palette.text.secondary,
     height: 50,
+    display: "flex",
+    justifyContent: "right",
     lineHeight: "60px",
     paddingLeft: "20px",
     backgroundColor: "rgb(237, 242, 249)",
+    mb: 3,
   }));
 
   const [todos, setTodos] = useState([]);
@@ -92,7 +97,6 @@ function ModuleTask() {
       )
     );
   };
-  
 
   return (
     <Grid
@@ -102,41 +106,103 @@ function ModuleTask() {
       gap={3}
       sx={{ justifyContent: "center", width: "100vh" }}
     >
-      <Container sx={{ width:300}}>
-        <Item>
-          <b>User1</b>
-          <TodoForm addTodo={addTodo}/>
-        </Item>
-        <Item>
-        {todos.map((todo) =>
-        (
-          <Todo
-            key={todo.id}
-            task={todo}
-            deleteTodo={deleteTodo}
-            editTodo={editTodo}
-            toggleComplete={toggleComplete}
-          />
-        )
-      )}
-        </Item>
+      <Container sx={{ width: 300 }}>
+        <ColumUser>
+          <Box sx={{ bgColor: "blue", width: 150 }}>
+            <b>Usuario</b>
+          </Box>
+          <TodoForm addTodo={addTodo} />
+        </ColumUser>
 
+        {todos.map((todo) =>
+          todo.isEditing ? (
+            <EditTodoForm editTodo={editTask} task={todo}  />
+          ) : (
+            <div className="CardTask">
+              <Todo
+                key={todo.id}
+                task={todo}
+                deleteTodo={deleteTodo}
+                editTodo={editTodo}
+                toggleComplete={toggleComplete}
+              />
+            </div>
+          )
+        )}
       </Container>
-      <Container sx={{ width:300}}>
-        <Item>
-          <b>User2</b>
-        </Item>
+      <Container sx={{ width: 300 }}>
+        <ColumUser>
+          <Box sx={{ bgColor: "blue", width: 150 }}>
+            <b>Usuario</b>
+          </Box>
+          <TodoForm addTodo={addTodo} />
+        </ColumUser>
+
+        {todos.map((todo) =>
+          todo.isEditing ? (
+            <EditTodoForm editTodo={editTask} task={todo}  />
+          ) : (
+            <div className="CardTask">
+              <Todo
+                key={todo.id}
+                task={todo}
+                deleteTodo={deleteTodo}
+                editTodo={editTodo}
+                toggleComplete={toggleComplete}
+              />
+            </div>
+          )
+        )}
       </Container>
-      <Container sx={{ width:300}}>
-        <Item>
-          <b>User3</b>
-        </Item>
+      <Container sx={{ width: 300 }}>
+        <ColumUser>
+          <Box sx={{ bgColor: "blue", width: 150 }}>
+            <b>Usuario</b>
+          </Box>
+          <TodoForm addTodo={addTodo} />
+        </ColumUser>
+
+        {todos.map((todo) =>
+          todo.isEditing ? (
+            <EditTodoForm editTodo={editTask} task={todo}  />
+          ) : (
+            <div className="CardTask">
+              <Todo
+                key={todo.id}
+                task={todo}
+                deleteTodo={deleteTodo}
+                editTodo={editTodo}
+                toggleComplete={toggleComplete}
+              />
+            </div>
+          )
+        )}
       </Container>
-      <Container sx={{ width:300}}>
-        <Item>
-          <b>User4</b>
-        </Item>
+      <Container sx={{ width: 300 }}>
+        <ColumUser>
+          <Box sx={{ bgColor: "blue", width: 150 }}>
+            <b>Usuario</b>
+          </Box>
+          <TodoForm addTodo={addTodo} />
+        </ColumUser>
+
+        {todos.map((todo) =>
+          todo.isEditing ? (
+            <EditTodoForm editTodo={editTask} task={todo}  />
+          ) : (
+            <div className="CardTask">
+              <Todo
+                key={todo.id}
+                task={todo}
+                deleteTodo={deleteTodo}
+                editTodo={editTodo}
+                toggleComplete={toggleComplete}
+              />
+            </div>
+          )
+        )}
       </Container>
+      
     </Grid>
   );
 }
