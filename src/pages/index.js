@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import Dashboard from "./admin/default/Home/Home";
 import "../styles/Home.module.css";
+import LoginLayout from "./Login/LoginLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,7 @@ const session = supabase.auth.session()
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Dashboard />
+      <LoginLayout />
     </>
   );
 }
