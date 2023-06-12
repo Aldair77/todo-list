@@ -8,7 +8,7 @@ module.exports = nextConfig
 const fs = require('fs');
 module.exports = {
   serverRuntimeConfig: {
-      secret: 'THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING'
+      secret: 'd41e70e6-d71f-41e4-b44a-6747e43519fd'
   },
   publicRuntimeConfig: {
       apiUrl: process.env.NODE_ENV === 'development'

@@ -35,6 +35,17 @@ const whiteTheme = createTheme({
 
 function IndexHeader() {
   const drawerWidth = 420; // -- tamaño de sidebar
+ /* const {
+		todos,
+		todosCount,
+		pendingTodosCount,
+		handleNewTodo,
+		handleDeleteTodo,
+		handleCompleteTodo,
+		handleUpdateTodo,
+	} = useTodo();
+*/
+
 
   return (
     <>
@@ -56,14 +67,28 @@ function IndexHeader() {
               >
                 Tasks
               </Typography>
-
+              <Typography
+                variant="h4"
+                noWrap
+                component="div"
+                sx={{ flexGrow: 1 }}
+              >
+                {/*<div className="counter-todos">
+                  <h3>
+                    N° Tareas: <span>{todosCount}</span>
+                  </h3>
+                  <h3>
+                    Pendientes: <span>{pendingTodosCount}</span>
+                  </h3>
+  </div>*/ }
+              </Typography>
               <IconButton
                 size="large"
                 aria-label="display more actions"
                 edge="end"
                 color="inherit"
               >
-                <MoreVertIcon sx={{ fontSize: 30 }}/>
+                <MoreVertIcon sx={{ fontSize: 30 }} />
               </IconButton>
             </StyledToolbar>
           </AppBar>

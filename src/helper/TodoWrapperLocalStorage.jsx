@@ -4,9 +4,21 @@ import { v4 as uuidv4 } from "uuid";
 import { Todo } from "../components/task/Todo";
 import { EditTodoForm } from "../components/task/EditTodoForm";
 uuidv4();
+import { useEffect, useReducer } from 'react';
+import { todoReducer } from '../todoreducer';
 
 export const TodoWrapperLocalStorage = () => {
   const [todos, setTodos] = useState([]);
+
+  const initialState = [];
+	/* const [todos, dispatch] = useReducer(
+		todoReducer,
+		initialState,
+		init
+	);*/
+
+  const todosCount = todos.length
+  const pendingTodosCount = todos.filter(todo => !todo.done).length
 
   useEffect(() => {
     const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];

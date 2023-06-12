@@ -1,9 +1,10 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import "../styles/Home.module.css";
-import LoginLayout from "./Login/LoginLayout";
+/*import LoginLayout from "./Login/LoginLayout";
 import Login from "@/pages/pages/account/login";
-import Register from "@/pages/pages/account/register";
+import Register from "@/pages/pages/account/register";*/
+import Dashboard from "./admin/default/Home/Home";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Register/>
+     <Dashboard/>
 
       
     </>
