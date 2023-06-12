@@ -1,18 +1,14 @@
-"use client"
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import Dashboard from "./admin/default/Home/Home";
 import "../styles/Home.module.css";
 import LoginLayout from "./Login/LoginLayout";
-import App from "./App";
+import Login from "@/pages/pages/account/login";
+import Register from "@/pages/pages/account/register";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  /* const [authsession, setSession] = useState(null);
-useEffect(()=>{ 
-const session = supabase.auth.session()
-  setSession(session)
-},[])*/
+
   return (
     <>
       <Head>
@@ -22,9 +18,9 @@ const session = supabase.auth.session()
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <LoginLayout />
+      <Register/>
 
-      <App/>
+      
     </>
   );
 }

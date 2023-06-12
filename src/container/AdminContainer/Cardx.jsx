@@ -28,7 +28,7 @@ export default function Cardx() {
 
   return (
     <>
-      <Container sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
+      <Container sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
         <Card sx={{ maxWidth: 300, borderRadius: "20px", mr: 2 }}>
           <CardContent
             sx={{ bgcolor: "rgb(230, 231, 232 )", alignContent: "center" }}

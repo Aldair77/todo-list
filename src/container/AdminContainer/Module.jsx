@@ -6,13 +6,19 @@ import PieChart from "@/components/chartjs/PieChart";
 import Cardx from "./Cardx";
 import BarChart from "@/components/chartjs/BarChart";
 import Link from "next/link";
+import Typography from "@mui/material/Typography";
+import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+import { deepPurple } from '@mui/material/colors';
+import Avatar from '@mui/material/Avatar';
 
 export default function Module() {
   const StyleBox = {
     height: 50,
     width: 300,
-    justifyContent: "center",
+    paddingTop: (1.5), 
+    paddingBottom: (1.5),
     textAlign: "center",
+    alignItems: "center",
     backgroundColor: (theme) =>
       theme.palette.mode === "dark" ? "#1A2027" : "rgb(230, 231, 232 )",
   };
@@ -20,8 +26,8 @@ export default function Module() {
   const StyleBoxpie = {
     position: "center",
     width: 300,
-    height: 140,
-    pb: 2,
+    height: 150,
+    pb: 1,
   };
 
   const StylePaper = {
@@ -32,8 +38,23 @@ export default function Module() {
     mr: 6,
     backgroundColor: (theme) => (theme.palette.mode = "#f2f2f2"),
   };
+
+  const StyledAvatar = styled(Box)`
+  ${({ theme }) => `
+
+  
+  transition: ${theme.transitions.create(['background-color', 'transform'], {
+    duration: theme.transitions.duration.standard,
+  })};
+  &:hover {
+    
+    transform: scale(1.1);
+  }
+  `}
+`;
+
   return (
-    <Grid sx={{ flexGrow: 1, display: "flex" }}>
+    <Grid sx={{ flexGrow: 1, display: "flex",mt:3 }}>
       <Grid gap={1} sx={{ justifyContent: "center", width: 1300 }}>
         <Grid
           container
@@ -45,17 +66,18 @@ export default function Module() {
           <Link href="/admin/default/Task/Task">
             <Paper elevation={1} sx={StylePaper}>
               <Box sx={StyleBox}>
-                <h3>Tareas en Total</h3>
+                <Typography gutterBottom variant="h6">Tareas en Total</Typography> 
               </Box>
               <Box sx={StyleBoxpie}>
-                <PieChart m={2} />
+                <PieChart m={0} />
+                
               </Box>
             </Paper>
           </Link>
 
           <Paper elevation={1} sx={StylePaper}>
             <Box sx={StyleBox}>
-              <h3>Tareas Pendientes</h3>
+            <Typography gutterBottom variant="h6">Tareas en Pendientes</Typography> 
             </Box>
             <Box sx={StyleBoxpie}>
               <PieChart />
@@ -64,7 +86,7 @@ export default function Module() {
 
           <Paper elevation={1} sx={StylePaper}>
             <Box sx={StyleBox}>
-              <h3>Tareas completadas</h3>
+            <Typography gutterBottom variant="h6">Tareas en Completadas</Typography> 
             </Box>
             <Box sx={StyleBoxpie}>
               <PieChart />
