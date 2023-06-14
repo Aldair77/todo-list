@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { registerUser } from "../../../../lib/auth";
 import Router from "next/router";
-
+import React from "react";
 import { Modal, Input, Row, Checkbox, Button, Text } from "@nextui-org/react";
 import { Mail } from "./Mail";
 import { Password } from "./Password";

@@ -1,11 +1,10 @@
 import React from 'react'
-import LoginIndex from '@/container/components/LoginIndex'
-
+import { RegisterForm } from '@/container/components/Auth/Register'
 
 function LoginDash() {
   return (
     <div>
-      <LoginIndex/>
+      <RegisterForm/>
     </div>
   )
 }
