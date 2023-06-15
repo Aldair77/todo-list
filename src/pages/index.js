@@ -6,7 +6,7 @@ import Login from "@/pages/pages/account/login";
 import Register from "@/pages/pages/account/register";*/
 import Dashboard from "./admin/default/Home/Home";
 import LoginDash from "./admin/default/Login/LoginDash";
-
+import Login from "./auth/login";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
            
-      <LoginDash/>
+      <Login/>
       
     </>
   );

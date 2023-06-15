@@ -2,9 +2,11 @@ import { useState } from "react";
 import { registerUser } from "../../../../lib/auth";
 import Router from "next/router";
 import React from "react";
+
 import { Modal, Input, Row, Checkbox, Button, Text } from "@nextui-org/react";
 import { Mail } from "./Mail";
 import { Password } from "./Password";
+import { Box } from "@mui/material";
 
 export function RegisterForm() {
   const [visible, setVisible] = React.useState(false);
@@ -37,76 +39,78 @@ export function RegisterForm() {
 
   return (
     <>
-      <div>
+     { /* <div>
         <Button auto color="warning" shadow onPress={handler}>
-          Open modal
+          Registro
         </Button>
         <Modal
           closeButton
           blur
           aria-labelledby="modal-title"
           open={visible}
-          onClose={handleSubmit}
+          onClose={closeHandler}
+          
         >
-          <Modal.Header>
-            <Text id="modal-title" size={18}>
-              Welcome to
-              <Text b size={18}>
-                NextUI
+          <Box component="form" onSubmit={handleSubmit}>
+            <Modal.Header>
+              <Text id="modal-title" size={18}>
+                <Text b size={20}>
+                  Registrate
+                </Text>
               </Text>
-            </Text>
-          </Modal.Header>
-          <Modal.Body>
-            <Input
-              clearable
-              bordered
-              fullWidth
-              color="primary"
-              size="lg"
-              placeholder="Email"
-              contentLeft={<Mail fill="currentColor" />}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <Input
-              clearable
-              bordered
-              fullWidth
-              color="primary"
-              size="lg"
-              placeholder="Usuario"
-              contentLeft={<Mail fill="currentColor" />}
-              onChange={(e) => setUsername(e.target.value)}
-            />
+            </Modal.Header>
+            <Modal.Body>
+              <Input
+                clearable
+                bordered
+                fullWidth
+                color="primary"
+                size="lg"
+                placeholder="Email"
+                contentLeft={<Mail fill="currentColor" />}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Input
+                clearable
+                bordered
+                fullWidth
+                color="primary"
+                size="lg"
+                placeholder="Usuario"
+                contentLeft={<Mail fill="currentColor" />}
+                onChange={(e) => setUsername(e.target.value)}
+              />
 
-            <Input
-              clearable
-              bordered
-              fullWidth
-              color="primary"
-              size="lg"
-              placeholder="Password"
-              contentLeft={<Password fill="currentColor" />}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <Row justify="space-between">
-              <Checkbox>
-                <Text size={14}>Remember me</Text>
-              </Checkbox>
-              <Text size={14}>Olvidaste tu contraseña?</Text>
-            </Row>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button tauto flat color="error" /*onPress={closeHandler}*/>
-              Close
-            </Button>
-            <Button type="submit" auto onPress={closeHandler}>
-              Sign in
-            </Button>
-          </Modal.Footer>
+              <Input
+                clearable
+                bordered
+                fullWidth
+                color="primary"
+                size="lg"
+                placeholder="Password"
+                contentLeft={<Password fill="currentColor" />}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <Row justify="space-between">
+                <Checkbox>
+                  <Text size={14}></Text>
+                </Checkbox>
+                <Text size={14}></Text>
+              </Row>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button /*tauto*//* flat color="error" onPress={closeHandler}>
+                Close
+              </Button>
+              <Button type="submit" auto>
+                Sign in
+              </Button>
+            </Modal.Footer>
+          </Box>
         </Modal>
-      </div>
+      </div>*/}
 
-     {/* <form onSubmit={handleSubmit}>
+      { <form onSubmit={handleSubmit}>
         <fieldset>
           <legend className="h1">Register</legend>
           <div className="mb-3">
@@ -149,7 +153,7 @@ export function RegisterForm() {
             Submit
           </button>
         </fieldset>
-  </form> */}
+  </form> }
     </>
   );
 }

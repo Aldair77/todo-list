@@ -1,4 +1,6 @@
 // lib -> users -> All JS function that I use across the project.
+
+
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -15,6 +17,12 @@ let users = [
     username: "makan",
     email: "makan@google.com",
     password: "$2b$10$Sl8BsmAmJAKUCKlG2FlwZOgbiCGMkEkpgjEfc/FDdFMcq6RFaZjw2",
+  },
+  {
+    id: 1,
+    username: "aldair",
+    email: "makan@google.com",
+    password: "aldair",
   },
 ];
 // ----------------------------------------------------*
