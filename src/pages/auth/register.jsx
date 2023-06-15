@@ -12,6 +12,7 @@ export default function Register() {
       <RegisterForm />
 
       <div style={styles}>
+        
         <Link href="/auth/login">Estas Registrado? Inicia Sesion Ahora!</Link>
       </div>
     </BaseAuthLayout>

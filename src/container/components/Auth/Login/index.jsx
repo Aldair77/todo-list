@@ -56,10 +56,15 @@ export function LoginForm() {
     }
   }
 
+  const styles = {
+    marginTop: 30,
+    textAlign: "center",
+  };
+
   return (
     <>
-      {/*<div>
-        <Button auto color="warning" shadow onPress={handler}>
+      {<div>
+        <Button auto styles={styles} color="warning" shadow onPress={handler}>
           Open modal
         </Button>
         <Modal
@@ -118,7 +123,7 @@ export function LoginForm() {
           )}
             </Modal.Body>
             <Modal.Footer>
-              <Button /*tauto*//* flat color="error" onPress={closeHandler}>
+              <Button /*tauto*/ flat color="error" onPress={closeHandler}>
                 Cerrar
               </Button>
               <Button type="submit" auto disabled={isLoading} >
@@ -127,9 +132,9 @@ export function LoginForm() {
             </Modal.Footer>
           </Box>
         </Modal>
-      </div> */}
+      </div> }
 
-      {<form onSubmit={handleSubmit}>
+      {/*<form onSubmit={handleSubmit}>
         <fieldset>
           <legend className="h1">Login</legend>
           <div className="mb-3">
@@ -182,7 +187,7 @@ export function LoginForm() {
             Login
           </button>
         </fieldset>
-          </form>}
+          </form>*/}
     </>
   );
 }

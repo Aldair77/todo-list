@@ -1,4 +1,4 @@
-import { trueTypeOf } from "../../helper";
+import { trueTypeOf } from "../../helper/index";
 import { findUser, login, register, verifyToken } from "../../lib/users";
 
 export default (req, res) => {
@@ -9,7 +9,7 @@ export default (req, res) => {
     });
     return;
   }
-  /*const authorizationToken = req.headers.authorization;
+  const authorizationToken = req.headers.authorization;
   if (authorizationToken) {
     try {
       const verifiedUser = verifyToken(authorizationToken);
@@ -40,5 +40,5 @@ export default (req, res) => {
   res.status(401).json({
     error: "Unauthorized",
     message: "Not allowed.",
-  }); */
+  }); 
 };

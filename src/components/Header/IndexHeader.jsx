@@ -3,13 +3,13 @@ import Header from "./Header";
 import AppBar from "@mui/material/AppBar";
 import { Box, Grid } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import Logout from "./Logout";
 
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import { styled } from "@mui/material/styles";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   alignItems: "flex-start",
@@ -35,7 +35,7 @@ const whiteTheme = createTheme({
 
 function IndexHeader() {
   const drawerWidth = 420; // -- tamaño de sidebar
- /* const {
+  /* const {
 		todos,
 		todosCount,
 		pendingTodosCount,
@@ -45,7 +45,6 @@ function IndexHeader() {
 		handleUpdateTodo,
 	} = useTodo();
 */
-
 
   return (
     <>
@@ -80,16 +79,14 @@ function IndexHeader() {
                   <h3>
                     Pendientes: <span>{pendingTodosCount}</span>
                   </h3>
-  </div>*/ }
+  </div>*/}
               </Typography>
-              <IconButton
+              <Logout
                 size="large"
                 aria-label="display more actions"
                 edge="end"
                 color="inherit"
-              >
-                <MoreVertIcon sx={{ fontSize: 30 }} />
-              </IconButton>
+              />
             </StyledToolbar>
           </AppBar>
         </Box>

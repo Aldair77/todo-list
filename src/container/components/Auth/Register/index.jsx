@@ -37,10 +37,15 @@ export function RegisterForm() {
     }
   }
 
+  const styles = {
+    marginTop: 30,
+    textAlign: "center",
+  };
+
   return (
     <>
-     { /* <div>
-        <Button auto color="warning" shadow onPress={handler}>
+     {  <div>
+        <Button auto styles={styles} color="warning" shadow onPress={handler}>
           Registro
         </Button>
         <Modal
@@ -99,7 +104,7 @@ export function RegisterForm() {
               </Row>
             </Modal.Body>
             <Modal.Footer>
-              <Button /*tauto*//* flat color="error" onPress={closeHandler}>
+              <Button /*tauto*/ flat color="error" onPress={closeHandler}>
                 Close
               </Button>
               <Button type="submit" auto>
@@ -108,9 +113,9 @@ export function RegisterForm() {
             </Modal.Footer>
           </Box>
         </Modal>
-      </div>*/}
+      </div>}
 
-      { <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <fieldset>
           <legend className="h1">Register</legend>
           <div className="mb-3">
@@ -153,7 +158,7 @@ export function RegisterForm() {
             Submit
           </button>
         </fieldset>
-  </form> }
+     </form> */}
     </>
   );
 }
