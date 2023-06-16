@@ -2,20 +2,34 @@ import { useState, useEffect } from "react";
 import Router from "next/router";
 import { loginUser } from "../../../../lib/auth";
 import { removeToken } from "../../../../lib/token";
-import React from "react";
 
-import { Modal, Input, Row, Checkbox, Button, Text } from "@nextui-org/react";
-import { Mail } from "./Mail";
-import { Password } from "./Password";
-import { Box } from "@mui/material";
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const defaultTheme = createTheme();
 
 export function LoginForm() {
-  const [visible, setVisible] = React.useState(false);
-  const handler = () => setVisible(true);
-  const closeHandler = () => {
-    setVisible(false);
-    console.log("closed");
-  };
+  /*const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
+  };*/
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -56,83 +70,93 @@ export function LoginForm() {
     }
   }
 
-  const styles = {
-    marginTop: 30,
-    textAlign: "center",
-  };
-
   return (
     <>
-      {<div>
-        <Button auto styles={styles} color="warning" shadow onPress={handler}>
-          Open modal
-        </Button>
-        <Modal
-          closeButton
-          blur
-          aria-labelledby="modal-title"
-          open={visible}
-          onClose={closeHandler}
-          
-        >
-          <Box component="form" onSubmit={handleSubmit}>
-            <Modal.Header>
-              <Text id="modal-title" size={18}>
-                <Text b size={20}>
-                  Iniciar Sesion
-                </Text>
-              </Text>
-            </Modal.Header>
-            <Modal.Body>
-              <Input
-                clearable
-                bordered
+      <ThemeProvider theme={defaultTheme}>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Iniciar Sesion
+            </Typography>
+            <Box
+              component="form"
+              onSubmit={handleSubmit}
+              noValidate
+              sx={{ mt: 1 }}
+            >
+              <TextField
+                margin="normal"
+                required
                 fullWidth
-                color="primary"
-                size="lg"
-                placeholder="Usuario"
-                contentLeft={<Mail fill="currentColor" />}
+                id="email"
+                label="Usuario"
+                name="email"
+                autoComplete="email"
+                autoFocus
                 onChange={(e) => setUsername(e.target.value)}
               />
-
-              <Input
-                clearable
-                bordered
+              <TextField
+                margin="normal"
+                required
                 fullWidth
-                color="primary"
-                size="lg"
-                placeholder="Password"
-                contentLeft={<Password fill="currentColor" />}
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <Row justify="space-between">
-                <Checkbox>
-                  <Text
-                    size={14}
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value="remember"
+                    color="primary"
                     onChange={(e) => setRememberMe(e.target.checked)}
-                  >
-                    Remember me
-                  </Text>
-                </Checkbox>
-                <Text size={14}>Olvidaste tu contraseña?</Text>
-              </Row>
+                  />
+                }
+                label="Remember me"
+              />
               {errorMessage && (
-            <div className="alert alert-danger" role="alert">
-              {errorMessage}
-            </div>
-          )}
-            </Modal.Body>
-            <Modal.Footer>
-              <Button /*tauto*/ flat color="error" onPress={closeHandler}>
-                Cerrar
+                <div className="alert alert-danger" role="alert">
+                  {errorMessage}
+                </div>
+              )}
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                disabled={isLoading}
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Iniciar Sesion
               </Button>
-              <Button type="submit" auto disabled={isLoading} >
-                Login
-              </Button>
-            </Modal.Footer>
+              <Grid container>
+                <Grid item xs>
+                  <Link href="#" variant="body2">
+                    Olvidaste tu contraseña?
+                  </Link>
+                </Grid>
+                <Grid item>
+                  <Link href="#" variant="body2">
+                    {"Don't have an account? Sign Up"}
+                  </Link>
+                </Grid>
+              </Grid>
+            </Box>
           </Box>
-        </Modal>
-      </div> }
+        </Container>
+      </ThemeProvider>
 
       {/*<form onSubmit={handleSubmit}>
         <fieldset>

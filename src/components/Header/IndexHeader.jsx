@@ -5,11 +5,15 @@ import { Box, Grid } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Logout from "./Logout";
 
+import { whoAmI } from "../../lib/auth";
+
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import { styled } from "@mui/material/styles";
+import { useState, useEffect } from "react";
+import Router from "next/router";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   alignItems: "flex-start",
@@ -45,7 +49,50 @@ function IndexHeader() {
 		handleUpdateTodo,
 	} = useTodo();
 */
+  function Usuario() {
+    const [user, setUser] = useState({});
+    useEffect(() => {
+      const token =
+        window.localStorage.getItem("token") ||
+        window.sessionStorage.getItem("token");
+      if (!token) {
+        redirectToLogin();
+      } else {
+        (async () => {
+          try {
+            const data = await whoAmI();
+            if (data.error === "Unauthorized") {
+              // User is unauthorized and there is no way to support the User, it should be redirected to the Login page and try to logIn again.
+              redirectToLogin();
+            } else {
+              setUser(data.payload);
+            }
+          } catch (error) {
+            // If we receive any error, we should be redirected to the Login page
+            redirectToLogin();
+          }
+        })();
+      }
+    }, []);
 
+    function redirectToLogin() {
+      Router.push("/auth/login");
+    }
+
+    function handleLogout(e) {
+      e.preventDefault();
+
+      removeToken();
+      redirectToLogin();
+    }
+    if (user.hasOwnProperty("username")) {
+      return (
+        <>
+          <h3>¡ Bienvenido {user.username} !</h3>
+        </>
+      );
+    }
+  }
   return (
     <>
       <ThemeProvider theme={whiteTheme}>
@@ -66,6 +113,7 @@ function IndexHeader() {
               >
                 Tasks
               </Typography>
+              <Usuario />
               <Typography
                 variant="h4"
                 noWrap

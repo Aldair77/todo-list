@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import { Modal, Input, Row, Checkbox, Button, Text } from "@nextui-org/react";
 import { Mail } from "./Mail";
 import { Password } from "./Password";
@@ -67,4 +67,4 @@ export default function LoginIndex() {
       </Modal>
     </div>
   );
-}
+}*/

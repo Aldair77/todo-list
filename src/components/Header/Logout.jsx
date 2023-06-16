@@ -5,6 +5,8 @@ import MenuItem from "@mui/material/MenuItem";
 
 import IconButton from "@mui/material/IconButton";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { removeToken } from "../../lib/token";
+import Router from "next/router";
 
 export default function Logout() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -16,13 +18,25 @@ export default function Logout() {
     setAnchorEl(null);
   };
 
+  /* Logout */
+  function redirectToLogin() {
+    Router.push("/auth/login");
+  }
+
+  function handleLogout(e) {
+    e.preventDefault();
+
+    removeToken();
+    redirectToLogin();
+  }
+
   return (
     <div>
       <IconButton
         id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
+        aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
+        aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
         <MoreVertIcon sx={{ fontSize: 30 }} />
@@ -36,8 +50,7 @@ export default function Logout() {
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem onClick={handleClose}>Cerrar Sesion</MenuItem>
-        
+        <MenuItem onClick={handleLogout}>Cerrar Sesion</MenuItem>
       </Menu>
     </div>
   );

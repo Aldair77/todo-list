@@ -1,6 +1,5 @@
 // lib -> users -> All JS function that I use across the project.
 
-
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -38,14 +37,14 @@ export function login(username, password) {
   if (!username || !password) {
     return {
       error: "WRONG_CREDENTIAL",
-      message: `Both Username and Password are required.`,
+      message: `Tanto el nombre de usuario como la contraseña son obligatorios.`,
     };
   }
 
   if (!isUserExists(username)) {
     return {
       error: "USER_NOT_FOUND",
-      message: `${username} is not defined, make sure the user is registered before.`,
+      message: `${username} no está definido, asegúrese de que el usuario esté registrado antes.`,
     };
   }
 
@@ -61,9 +60,13 @@ export function login(username, password) {
   }
 
   // Create new token by username
-  const token = jwt.sign({ username: user.username, email: user.email, id: user.id }, jwtSecretKey, {
-    expiresIn: 3000, // 50min
-  });
+  const token = jwt.sign(
+    { username: user.username, email: user.email, id: user.id },
+    jwtSecretKey,
+    {
+      expiresIn: 3000, // 50min
+    }
+  );
 
   return {
     payload: {
@@ -74,7 +77,10 @@ export function login(username, password) {
 // ----------------------------------------------------------------
 export function register({ username, password, email }) {
   if (!username || !password || !email) {
-    return errorMessage("WRONG_CREDENTIAL", `Username, password and email is required.`);
+    return errorMessage(
+      "WRONG_CREDENTIAL",
+      `Username, password and email is required.`
+    );
   }
 
   // Ref: https://stackoverflow.com/a/46181
